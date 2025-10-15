@@ -1,0 +1,183 @@
+---
+title: "PROBLEMAS RESUELTOS TD"
+author: "Mar Canales"
+date: "`r Sys.Date()`"
+format:
+  typst:
+    fig-format: png
+  html: default
+---
+
+## EJERCICIO 1
+
+Una empresa andaluza de artículos deportivos está considerando cuatro estrategias (D1, D2, D3, D4) bajo tres posibles escenarios de mercado (E1, E2, E3) para impulsar su presencia en el mercado del pádel. La matriz de valores numéricos (en millones de euros) bajo cada escenario viene dada en la tabla siguiente:
+
+|        | **E1** | **E2** | **E3** |
+|:------:|:------:|:------:|:------:|
+| **D1** |   16   |   8    |   4    |
+| **D2** |   12   |   9    |   3    |
+| **D3** |   14   |   7    |   1    |
+| **D4** |   10   |   6    |   2    |
+
+Resolvamos el problema:
+
+```{r}
+source("teoriadecision_funciones_incertidumbre.R")
+
+## Tabla de beneficios: 
+tabla1= crea.tablaX(c(16,8,4,
+                      12,9,3,
+                      14,7,1,
+                      10,6,2),4,3)
+
+```
+
+**Apartado 1:** Resuelvo el problema suponiendo que los datos son beneficios
+
+```{r}
+# Pesimista
+p1_pes = criterio.Wald(tabla1,T)
+p1_pes$AlternativaOptima
+
+# Optimista
+p1_opt = criterio.Optimista(tabla1,T)
+p1_opt$AlternativaOptima
+
+# Hurwicz
+p1_hur = criterio.Hurwicz(tabla1,T)
+p1_hur$AlternativaOptima
+
+# Estudio de la mejor alternativa en función del valor de alfa
+dibuja.criterio.Hurwicz(tabla1, favorable=TRUE)
+
+# Savage
+p1_savage = criterio.Savage(tabla1,T)
+p1_savage$AlternativaOptima
+
+# Laplace
+p1_laplace = criterio.Laplace(tabla1,T)
+p1_laplace$AlternativaOptima
+
+# Punto ideal
+p1_puntoideal = criterio.PuntoIdeal(tabla1,T)
+p1_puntoideal$AlternativaOptima
+
+# Resumen de todos
+p1_todos = criterio.Todos(tabla1,alfa=0.5, T)
+# p1_todos
+
+# tinytex::reinstall_tinytex(repository = "illinois")
+# tinytex::tlmgr_install("tabularray")
+library(tinytable)
+tt(criterio.Todos(tabla1, 0.5, favorable = TRUE), rownames = TRUE)
+
+```
+
+## Conclusión
+
+Hemos realizado todos los métodos de incertidumbre por separado y los visualizamos todos juntos con el criterio todos. En el caso de que la tabla sea de beneficios, llegamos a la conclusión de que la **alternativa d1** es la alternativa óptima ya que todos los métodos la eligen como la óptima. Como no tenemos un contexto del problema, no podemos decir más.
+
+Además hemos estudiado la decisión según el método Hurzwisc en función del valor de alfa, obteniendo que que para cualquier valor de alfa la decisión óptima con dicho método es la alternativa d1.
+
+**Apartado 2:** Análogamente resolvamos el problema suponiendo ahora que los datos son costes
+
+```{r}
+# Pesimista
+p2_pes = criterio.Wald(tabla1,F)
+p2_pes$AlternativaOptima
+
+# Optimista
+p2_opt = criterio.Optimista(tabla1,F)
+p2_opt$AlternativaOptima
+
+# Hurwicz
+p2_hur = criterio.Hurwicz(tabla1,F)
+p2_hur$AlternativaOptima
+
+# Estudio de la mejor alternativa en función del valor de alfa
+dibuja.criterio.Hurwicz(tabla1, favorable=FALSE)
+
+# Obtengo el resultado de cual es la mejor alternativa para cada cada valor de alfa
+dibuja.criterio.Hurwicz_Intervalos(tabla1, favorable =FALSE)
+
+# Savage
+p2_savage = criterio.Savage(tabla1,F)
+p2_savage$AlternativaOptima
+
+# Laplace
+p2_laplace = criterio.Laplace(tabla1,F)
+p2_laplace$AlternativaOptima
+
+# Punto ideal
+p2_puntoideal = criterio.PuntoIdeal(tabla1,F)
+p2_puntoideal$AlternativaOptima
+
+# Resumen de todos
+p2_todos = criterio.Todos(tabla1,alfa=0.5, F)
+# p2_todos
+
+# tinytex::reinstall_tinytex(repository = "illinois")
+# tinytex::tlmgr_install("tabularray")
+library(tinytable)
+tt(criterio.Todos(tabla1, 0.5, favorable = FALSE), rownames = TRUE)
+
+```
+
+## Conclusión
+
+Hemos realizado todos los métodos de incertidumbre por separado y los visualizamos todos juntos con el criterio todos. En el caso de que la tabla sea de costes, llegamos a la conclusión de que la **alternativa d4** es la alternativa óptima ya que 5 de los 6 métodos la eligen como la óptima.
+
+Además hemos estudiado la decisión según el método Hurzwisc en función del valor de alfa, obteniendo que si alfa está en el intervalo (0,0.8) la alternativa óptima es d4, sin embargo, si alfa\>0.8 seleccionaría la alternativa d3.
+
+\newpage
+
+## EJERCICIO 2
+
+Una agencia de viajes sevillana está decidiendo qué tipo de paquete turístico principal ofrecer el próximo año. El éxito de cada opción dependerá del nivel de demanda turística que se presente. Alternativas:\
+- D1 – Ofrecer viajes internacionales\
+- D2 – Potenciar viajes nacionales\
+- D3 – Promocionar escapadas de fin de semana (paquetes cortos y económicos)\
+Escenarios de demanda:\
+• E1 – Alta demanda turística: incremento general de viajes\
+• E2 – Demanda media: comportamiento normal del mercado\
+• E3 – Baja demanda: caída del turismo por crisis o factores externos como la guerra\
+Los siguientes valores representan los beneficios esperados (en miles de euros) para cada decisión bajo cada escenario:
+
+|        | **E1** | **E2** | **E3** |
+|:------:|:------:|:------:|:------:|
+| **D1** |  300   |  180   |   60   |
+| **D2** |  220   |  190   |  130   |
+| **D3** |  150   |  160   |  140   |
+
+Procedemos a la resolución del problema:
+
+```{r}
+tabla2=crea.tablaX(c(300,180,60,
+                     220,190,130,
+                     150,160,140),3,3)
+# Añado nombres a las columnas
+colnames(tabla2) = c("Alta demanda", "Media", "Baja")
+
+# Resolvemos con la función de todos
+p3_todos = criterio.Todos(tabla2,alfa=0.5, T)
+# p3_todos
+
+# Estudio de la mejor alternativa en función del valor de alfa
+dibuja.criterio.Hurwicz(tabla2, favorable=T)
+
+# Obtengo el resultado de cual es la mejor alternativa para cada cada valor de alfa
+dibuja.criterio.Hurwicz_Intervalos(tabla2, favorable =T)
+
+
+# tinytex::reinstall_tinytex(repository = "illinois")
+# tinytex::tlmgr_install("tabularray")
+library(tinytable)
+tt(criterio.Todos(tabla2, 0.5, favorable = TRUE), rownames = TRUE)
+```
+
+## Conclusión
+
+En esta ocasión utilizamos directamente el criterio de todos, este nos muestra que para 5 de los 6 métodos, d1 es la mejor opción y, para 3 de ellos hay un empate con d2, y para el método de Wald el mejor sería d3. Por tanto, **la opción idónea será d1 que es ofrecer viajes internacionales.**\
+La única excepción en la que recomendaría que la decición fuera d3, sería si supiéramos que la agencia de viajes es pesimista.
+
+Por último, hemos estudiado la decisión según el método Hurzwisc en función del valor de alfa, obteniendo que si alfa está en el intervalo (0,0.143) la alternativa óptima es d3, si alfa está en (0.143, 0.467) será d2, y finalmente, si alfa\>0.467 seleccionaría la alternativa d1.
