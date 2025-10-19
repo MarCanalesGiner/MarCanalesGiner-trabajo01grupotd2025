@@ -1,5 +1,5 @@
 ---
-title: "Enunciados trabajo individual 01"
+title: "Enunciados trabajo grupo 01"
 author: "Mar Canales Giner"
 output:
   pdf_document: default
