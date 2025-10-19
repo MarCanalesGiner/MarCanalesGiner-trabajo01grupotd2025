@@ -22,7 +22,7 @@ Una empresa andaluza de artículos deportivos está considerando cuatro estrateg
 Resolvamos el problema:
 
 ```{r}
-source("teoriadecision_funciones_incertidumbre.R")
+source("https://raw.githubusercontent.com/calote/TDecisionCodigo/refs/heads/master/teoriadecision_funciones_incertidumbre.R")
 
 ## Tabla de beneficios: 
 tabla1= crea.tablaX(c(16,8,4,
@@ -208,7 +208,7 @@ resolverlo con cada uno de los métodos o funciones individuales de incertidumbr
 
 
 ```{r}
-source("teoriadecision_funciones_incertidumbre.R")
+source("https://raw.githubusercontent.com/calote/TDecisionCodigo/refs/heads/master/teoriadecision_funciones_incertidumbre.R")
 ```
 
 #### Situación favorable
@@ -477,7 +477,7 @@ Si el restaurante fuera pesimista, la alternativa Risotto de marisco sería reco
 
 ```{r}
 # Librerías y carga de funciones
-source("teoria_decision_funciones_incertidumbre.R")
+source("https://raw.githubusercontent.com/calote/TDecisionCodigo/refs/heads/master/teoriadecision_funciones_incertidumbre.R")
 library(ggplot2)
 library(knitr)
 library(kableExtra)
