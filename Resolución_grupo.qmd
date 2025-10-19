@@ -1,6 +1,6 @@
 ---
 title: "PROBLEMAS RESUELTOS TD"
-author: "Mar Canales"
+author: "Mar Canales, Camilla Bocciolone, Manuel Triviño y Carmen Puerto"
 date: "`r Sys.Date()`"
 format:
   typst:
@@ -77,7 +77,7 @@ tt(criterio.Todos(tabla1, 0.5, favorable = TRUE), rownames = TRUE)
 
 Hemos realizado todos los métodos de incertidumbre por separado y los visualizamos todos juntos con el criterio todos. En el caso de que la tabla sea de beneficios, llegamos a la conclusión de que la **alternativa d1** es la alternativa óptima ya que todos los métodos la eligen como la óptima. Como no tenemos un contexto del problema, no podemos decir más.
 
-Además hemos estudiado la decisión según el método Hurzwisc en función del valor de alfa, obteniendo que que para cualquier valor de alfa la decisión óptima con dicho método es la alternativa d1.
+Además hemos estudiado la decisión según el método Hurwicz en función del valor de alfa, obteniendo que que para cualquier valor de alfa la decisión óptima con dicho método es la alternativa d1.
 
 **Apartado 2:** Análogamente resolvamos el problema suponiendo ahora que los datos son costes
 
@@ -127,7 +127,7 @@ tt(criterio.Todos(tabla1, 0.5, favorable = FALSE), rownames = TRUE)
 
 Hemos realizado todos los métodos de incertidumbre por separado y los visualizamos todos juntos con el criterio todos. En el caso de que la tabla sea de costes, llegamos a la conclusión de que la **alternativa d4** es la alternativa óptima ya que 5 de los 6 métodos la eligen como la óptima.
 
-Además hemos estudiado la decisión según el método Hurzwisc en función del valor de alfa, obteniendo que si alfa está en el intervalo (0,0.8) la alternativa óptima es d4, sin embargo, si alfa\>0.8 seleccionaría la alternativa d3.
+Además hemos estudiado la decisión según el método Hurwicz en función del valor de alfa, obteniendo que si alfa está en el intervalo (0,0.8) la alternativa óptima es d4, sin embargo, si alfa\>0.8 seleccionaría la alternativa d3.
 
 \newpage
 
@@ -180,7 +180,7 @@ tt(criterio.Todos(tabla2, 0.5, favorable = TRUE), rownames = TRUE)
 En esta ocasión utilizamos directamente el criterio de todos, este nos muestra que para 5 de los 6 métodos, d1 es la mejor opción y, para 3 de ellos hay un empate con d2, y para el método de Wald el mejor sería d3. Por tanto, **la opción idónea será d1 que es ofrecer viajes internacionales.**\
 La única excepción en la que recomendaría que la decición fuera d3, sería si supiéramos que la agencia de viajes es pesimista.
 
-Por último, hemos estudiado la decisión según el método Hurzwisc en función del valor de alfa, obteniendo que si alfa está en el intervalo (0,0.143) la alternativa óptima es d3, si alfa está en (0.143, 0.467) será d2, y finalmente, si alfa\>0.467 seleccionaría la alternativa d1.
+Por último, hemos estudiado la decisión según el método Hurwicz en función del valor de alfa, obteniendo que si alfa está en el intervalo (0,0.143) la alternativa óptima es d3, si alfa está en (0.143, 0.467) será d2, y finalmente, si alfa\>0.467 seleccionaría la alternativa d1.
 
 ## Problema 1 (Camilla Bocciolone)
 
@@ -202,7 +202,7 @@ Aplicar los criterios de decisión bajo incertidumbre a el problema cuya tabla 
 | D2  | -70 | -55 | -15 |
 | D3  | -40 | -35 | -22 |
 
-resuelverlo con cada uno de los métodos o funciones individuales de incertidumbre por separado (tanto en situación favorable como desfavorable)
+resolverlo con cada uno de los métodos o funciones individuales de incertidumbre por separado (tanto en situación favorable como desfavorable)
 
 ### Resolución
 
@@ -356,11 +356,11 @@ La alternativa 2 es la mejor según el criterio del punto ideal
 
 En situación favorable y desfavorable mismos resultados.
 
-Tres criterios (Savage, Laplace, Punto ideal) favorecen D2; los criterios que extreman la actitud (Wald y Optimista) empujan hacia D3 (muy pesimista) o D1 (muy optimista). El criterio de Hurwicz depiende de $\alpha$.
+Tres criterios (Savage, Laplace, Punto ideal) favorecen D2; los criterios que extreman la actitud (Wald y Optimista) empujan hacia D3 (muy pesimista) o D1 (muy optimista). El criterio de Hurwicz depende de $\alpha$.
 
 Entonces:
 
--   en general D2 es la opción optima
+-   en general D2 es la opción óptima
 
 -   Si el decisor es muy pesimista D3
 
@@ -376,7 +376,7 @@ Un restaurante italiano debe decidir qué nuevo plato principal incluir en e
 
 -   **E3:** Ossobuco alla milanese con risotto a la milanesa
 
-El exito del plato depende de la preferencia de los clientes, es decir, de los **estados de la naturaleza**:
+El éxito del plato depende de la preferencia de los clientes, es decir, de los **estados de la naturaleza**:
 
 -   **S1:** Alta demanda de platos saludables y vegetarianos
 
@@ -384,7 +384,7 @@ El exito del plato depende de la preferencia de los clientes, es decir, de los 
 
 -   **S3:** Mayor inclinación hacia la tradición italiana clásica
 
-El restaurante estima los beneficios esperados (en miles de €) de la siguiente form
+El restaurante estima los beneficios esperados (en miles de €) de la siguiente forma
 
 |     | S1  | S2  | S3  |
 |-----|-----|-----|-----|
@@ -396,7 +396,7 @@ Determinar cuál es la mejor decisión para el restaurante aplicando la función
 
 ### Resolución
 
-**Planteamento**	
+**Planteamiento**	
 
 -   Un decisor.
 
@@ -473,7 +473,7 @@ Resultado final:
 
 En general, considerando la mayoría de los criterios y un valor habitual de $\alpha$ (0.333 o superior), la mejor alternativa global es el Ossobuco a la milanesa.
 
-Si el restaurante fuera pesimista, la alternativa Risotto de marisco sería raccomandable
+Si el restaurante fuera pesimista, la alternativa Risotto de marisco sería recomandable
 
 ```{r}
 # Librerías y carga de funciones
