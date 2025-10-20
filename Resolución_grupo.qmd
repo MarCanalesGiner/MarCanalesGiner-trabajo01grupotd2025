@@ -502,7 +502,16 @@ alfaH <- 0.4 # Establecemos un nivel de alfa para el criterio de Hurwicz
 
 ```{r}
 #| label: tabla de decisión
-kable(pb1_datos, caption = "Tabla de decisión")
+#| results: 'asis'
+
+cat(
+  knitr::kable(
+    pb1_datos,
+    format = "markdown",
+    caption = "Tabla de decisión"
+  ),
+  sep = "\n"
+)
 ```
 
 ### 1.1 Resolución en el caso favorable (beneficios)
@@ -537,6 +546,8 @@ A continuación se ofrece una tabla resumen de la elección para cada uno de los
 
 ```{r}
 #| label: tabla de resultados en el caso favorable
+#| results: 'asis'
+
 resumenfav <- data.frame(
 Criterio = c("Wald", "Optimista", "Hurwicz", "Savage","Laplace","Punto Ideal"),
 AlternativaOptima = c(
@@ -549,9 +560,15 @@ AlternativaOptima = c(
 )
 )
 
-library(kableExtra)
-kable(resumenfav, caption = paste("Decisión óptima según cada criterio (α =", alfaH, ")")) |>
-kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
+
+cat(
+  knitr::kable(
+    resumenfav,         # tu data.frame
+    format = "markdown", # produce una tabla pipe compatible con Typst/PDF
+    caption = paste("Decisión óptima según cada criterio (α =", alfaH, ")")
+  ),
+  sep = "\n"
+)
 ```
 
 **Conclusión**: En todos los criterios la mejor alternativa en el caso favorable es la **d4**. Esto resultados están acorde a lo calculado con Excel.
@@ -588,6 +605,8 @@ Se muestra ahora un resumen de los resultados para el caso desfavorable.
 
 ```{r}
 #| label: tabla de resultados en el caso desfavorable
+#| results: 'asis'
+
 resumendes <- data.frame(
 Criterio = c("Wald", "Optimista", "Hurwicz", "Savage","Laplace","Punto Ideal"),
 AlternativaOptima = c(
@@ -599,10 +618,15 @@ AlternativaOptima = c(
   names(idealdes$AlternativaOptima)
 )
 )
-AlternativaOptima <- 
-library(kableExtra)
-kable(resumendes, caption = paste("Decisión óptima según cada criterio (α =", alfaH, ")")) |>
-kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
+
+cat(
+  knitr::kable(
+    resumendes,
+    format = "markdown",
+    caption = paste("Decisión óptima según cada criterio (α =", alfaH, ")")
+  ),
+  sep = "\n"
+)
 ```
 
 En el caso desfavorable elección mayoritaria será d3 en todos los criterios, sólo d5 se elige 1 vez en el criterio de Wald.
@@ -691,7 +715,16 @@ alfaH2 <- 0.6 # Establecemos un nivel de alfa para el criterio de Hurwicz
 
 ```{r}
 #| label: tabla de decisión pb2
-kable(pb2_datos, caption = "Tabla de decisión")
+#| results: 'asis'
+
+cat(
+  knitr::kable(
+    pb2_datos,
+    format = "markdown",
+    caption = "Tabla de decisión"
+  ),
+  sep = "\n"
+) 
 ```
 
 ```{r}
