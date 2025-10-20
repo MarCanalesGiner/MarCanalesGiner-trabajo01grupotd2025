@@ -2,7 +2,8 @@
 title: "Enunciados trabajo grupo 01"
 author: "Mar Canales Giner"
 output:
-  pdf_document: default
+  pdf_document: 
+    latex_engine: xelatex
   html_document: default
 ---
 
@@ -63,23 +64,23 @@ resuelverlo con cada uno de los métodos o funciones individuales de incertidumb
 
 ## Problema 2 – Restaurante italiano y elección del menú (Camilla Bocciolone)
 
-Un restaurante italiano debe decidir qué nuevo plato principal incluir en el menú de la próxima temporada. Las alternativas son:
+Un restaurante italiano debe decidir qué nuevo plato principal incluir en el menú de la próxima temporada. Las alternativas son:
 
--   **E1:** Lasagna vegetariana con verduras de temporada
+-   **E1:** Lasagna vegetariana con verduras de temporada
 
--   **E2:** Risotto ai frutti di mare
+-   **E2:** Risotto ai frutti di mare
 
--   **E3:** Ossobuco alla milanese con risotto a la milanesa
+-   **E3:** Ossobuco alla milanese con risotto a la milanesa
 
-El éxito del plato depende de la preferencia de los clientes, es decir, de los **estados de la naturaleza**:
+El éxito del plato depende de la preferencia de los clientes, es decir, de los **estados de la naturaleza**:
 
--   **S1:** Alta demanda de platos saludables y vegetarianos
+-   **S1:** Alta demanda de platos saludables y vegetarianos
 
--   **S2:** Preferencias equilibradas entre distintas opciones
+-   **S2:** Preferencias equilibradas entre distintas opciones
 
--   **S3:** Mayor inclinación hacia la tradición italiana clásica
+-   **S3:** Mayor inclinación hacia la tradición italiana clásica
 
-El restaurante estima los beneficios esperados (en miles de €) de la siguiente forma
+El restaurante estima los beneficios esperados (en miles de €) de la siguiente forma
 
 |     | S1  | S2  | S3  |
 |-----|-----|-----|-----|
@@ -93,7 +94,7 @@ Determinar cuál es la mejor decisión para el restaurante aplicando la función
 
 ```{r}
 # Librerías y carga de funciones
-source("teoria_decision_funciones_incertidumbre.R")
+source("https://raw.githubusercontent.com/calote/TDecisionCodigo/refs/heads/master/teoriadecision_funciones_incertidumbre.R")
 library(ggplot2)
 library(knitr)
 library(kableExtra)
@@ -120,7 +121,16 @@ alfaH <- 0.4 # Establecemos un nivel de alfa para el criterio de Hurwicz
 ```
 
 ```{r}
-kable(pb1_datos, caption = "Tabla de decisión")
+#| results: 'asis'
+
+cat(
+  knitr::kable(
+    pb1_datos,
+    format = "markdown",
+    caption = "Tabla de decisión"
+  ),
+  sep = "\n"
+)
 ```
 
 ## 2. Segundo problema: enunciar un problema real y resolverlo mediante métodos de incertidumbre. (Manuel Triviño)
