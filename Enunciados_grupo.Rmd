@@ -1,6 +1,6 @@
 ---
 title: "Enunciados trabajo grupo 01"
-author: "Mar Canales Giner"
+author: "Mar Canales, Camilla Bocciolone, Manuel Triviño y Carmen Puerto"
 output:
   pdf_document: 
     latex_engine: xelatex
