@@ -161,7 +161,7 @@ Las características de los planes son:
 
 
 
-## Ejercicio 1
+## Ejercicio 1 (Carmen Puerto)
 
 Un departamento universitario debe decidir qué modalidad de examen aplicar en una asignatura. La efectividad de cada decisión dependerá del nivel de preparación del alumnado ese año.
 
@@ -176,7 +176,7 @@ Los valores representan la media esperada de calificaciones sobre 10.
 
 
 
-## EJERCICIO 2
+## EJERCICIO 2 (Carmen Puerto)
 
 Una persona está planificando sus vacaciones de verano. Debe elegir entre tres destinos y sabe que el disfrute del viaje dependerá del clima durante esas fechas.
 
