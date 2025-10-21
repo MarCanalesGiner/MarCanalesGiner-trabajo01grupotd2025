@@ -169,7 +169,7 @@ dibuja.criterio.Hurwicz_Intervalos(tabla2, favorable =T)
 
 # tinytex::reinstall_tinytex(repository = "illinois")
 # tinytex::tlmgr_install("tabularray")
-library(tinytable)
+# library(tinytable)
 tt(criterio.Todos(tabla2, 0.5, favorable = TRUE), rownames = TRUE)
 ```
 
@@ -203,11 +203,6 @@ Aplicar los criterios de decisión bajo incertidumbre a el problema cuya tabla 
 resolverlo con cada uno de los métodos o funciones individuales de incertidumbre por separado (tanto en situación favorable como desfavorable)
 
 ### Resolución
-
-
-```{r}
-source("https://raw.githubusercontent.com/calote/TDecisionCodigo/refs/heads/master/teoriadecision_funciones_incertidumbre.R")
-```
 
 #### Situación favorable
 
@@ -475,7 +470,6 @@ Si el restaurante fuera pesimista, la alternativa Risotto de marisco sería reco
 
 ```{r}
 # Librerías y carga de funciones
-source("https://raw.githubusercontent.com/calote/TDecisionCodigo/refs/heads/master/teoriadecision_funciones_incertidumbre.R")
 library(ggplot2)
 library(knitr)
 library(kableExtra)
