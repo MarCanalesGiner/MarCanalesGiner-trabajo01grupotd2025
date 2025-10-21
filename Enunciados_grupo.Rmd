@@ -40,6 +40,9 @@ Los siguientes valores representan los beneficios esperados (en miles de euros) 
 | **D2** |  220   |  190   |  130   |
 | **D3** |  150   |  160   |  140   |
 
+\newpage
+
+
 ## Problema 1 (Camilla Bocciolone)
 
 Aplicar los criterios de decisión bajo incertidumbre a el problema cuya tabla de decisión es la siguiente:
@@ -61,6 +64,7 @@ Aplicar los criterios de decisión bajo incertidumbre a el problema cuya tabla 
 | D3  | -40 | -35 | -22 |
 
 resuelverlo con cada uno de los métodos o funciones individuales de incertidumbre por separado (tanto en situación favorable como desfavorable)
+
 
 ## Problema 2 – Restaurante italiano y elección del menú (Camilla Bocciolone)
 
@@ -91,8 +95,10 @@ El restaurante estima los beneficios esperados (en miles de €) de la siguiente
 Estados de la naturaleza S1 (saludable) S2 (equilibrada) S3 (tradicional)
 
 Determinar cuál es la mejor decisión para el restaurante aplicando la función R que devuelve la resolución de todos los métodos en una única tabla
+\newpage
 
 ```{r}
+#| echo: false
 # Librerías y carga de funciones
 source("https://raw.githubusercontent.com/calote/TDecisionCodigo/refs/heads/master/teoriadecision_funciones_incertidumbre.R")
 library(ggplot2)
@@ -122,6 +128,7 @@ alfaH <- 0.4 # Establecemos un nivel de alfa para el criterio de Hurwicz
 
 ```{r}
 #| results: 'asis'
+#| echo: false
 
 cat(
   knitr::kable(
@@ -160,6 +167,71 @@ Las características de los planes son:
 -    Plan Platinum: cuota anual 1.200 €, cobertura completa 100% de todos los costes.
 
 
+```{r}
+#| label: introducción de datos pb2
+#| echo: false
+
+# Ahorro
+md11 <- 300 + 120
+md12 <- 300 + 120 + 1800
+md13 <- 300 + 120 + 3000
+md14 <- 300 + 120 + 9000
+
+# Básico (50% cobertura en S2 y S3, 0% en S4)
+md21 <- 300 + 300
+md22 <- 300 + 300 + 0.5 * 1800
+md23 <- 300 + 300 + 0.5 * 3000
+md24 <- 300 + 300 + 9000
+
+# Plus (70% cobertura en S2 y S3, 20% en S4)
+md31 <- 300 + 480
+md32 <- 300 + 480 + 0.3 * 1800
+md33 <- 300 + 480 + 0.3 * 3000
+md34 <- 300 + 480 + 0.8 * 9000
+
+# Premium (90% cobertura en S2 y S3, 50% en S4)
+md41 <- 300 + 720
+md42 <- 300 + 720 + 0.1 * 1800
+md43 <- 300 + 720 + 0.1 * 3000
+md44 <- 300 + 720 + 0.5 * 9000
+
+# Platinum (100% cobertura en todo)
+md51 <- 300 + 1200
+md52 <- 1200
+md53 <- 1200
+md54 <- 1200
+
+
+
+pb2_datos <- crea.tablaX(c( 
+                md11, md12, md13, md14,
+                md21,	md22, md23,	md24,
+                md31,	md32, md33, md34,
+                md41,	md42, md43,	md44,
+                md51, md52, md53, md54),
+    numalternativas = 5, numestados = 4,
+    nb_alternativas = c("Ahorro", "Básico","Plus", "Premium", "Platinum"),
+    nb_estados = c("S1", "S2", "S3", "S4")
+)
+
+```
+
+```{r}
+#| label: tabla de decisión pb2
+#| results: 'asis'
+#| echo: false
+
+cat(
+  knitr::kable(
+    pb2_datos,
+    format = "markdown",
+    caption = "Tabla de decisión"
+  ),
+  sep = "\n"
+) 
+```
+
+\newpage
 
 ## Ejercicio 1 (Carmen Puerto)
 
