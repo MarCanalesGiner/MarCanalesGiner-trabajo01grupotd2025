@@ -2,8 +2,7 @@
 title: "PROBLEMAS RESUELTOS TD"
 author: "Mar Canales, Camilla Bocciolone, Manuel Triviño y Carmen Puerto"
 date: "`r Sys.Date()`"
-format:
-  html: default
+format: pdf
 ---
 
 ## EJERCICIO 1 (Mar Canales)
@@ -127,7 +126,6 @@ Hemos realizado todos los métodos de incertidumbre por separado y los visualiza
 
 Además hemos estudiado la decisión según el método Hurwicz en función del valor de alfa, obteniendo que si alfa está en el intervalo (0,0.8) la alternativa óptima es d4, sin embargo, si alfa\>0.8 seleccionaría la alternativa d3.
 
-\newpage
 
 ## EJERCICIO 2 (Mar Canales)
 
@@ -179,6 +177,7 @@ En esta ocasión utilizamos directamente el criterio de todos, este nos muestra 
 La única excepción en la que recomendaría que la decición fuera d3, sería si supiéramos que la agencia de viajes es pesimista.
 
 Por último, hemos estudiado la decisión según el método Hurwicz en función del valor de alfa, obteniendo que si alfa está en el intervalo (0,0.143) la alternativa óptima es d3, si alfa está en (0.143, 0.467) será d2, y finalmente, si alfa\>0.467 seleccionaría la alternativa d1.
+\newpage
 
 ## Problema 1 (Camilla Bocciolone)
 
@@ -468,6 +467,7 @@ En general, considerando la mayoría de los criterios y un valor habitual de $\a
 
 Si el restaurante fuera pesimista, la alternativa Risotto de marisco sería recomandable
 
+\newpage
 
 ## 1. Primer problema: Resolución de tabla de decisión con los métodos vistos en clase. (Manuel Triviño)
 
@@ -659,4 +659,6 @@ dibuja.criterio.Hurwicz_Intervalos(pb2_datos, favorable=FALSE)
 ```
 
 **Conclusión**: **contratamos el plan Platinum** que ha sido el elegido en todos los métodos menos el criterio Optimista, en el que se ha optado por el plan Ahorro. Esto concuerda con el estudio que hemos realizado del criterio de Hurwicz, donde vemos que a partir de α = 0.91 elegiremos la alternativa Ahorro.
+
+\newpage
 
