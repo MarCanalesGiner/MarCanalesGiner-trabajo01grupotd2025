@@ -888,6 +888,3 @@ Por tanto, si la persona quiere una opción segura y equilibrada, el destino ide
 
 
 
-=======
-\newpage
->>>>>>> 9481519661c10dc346a3f89d92eae346f54010d1
