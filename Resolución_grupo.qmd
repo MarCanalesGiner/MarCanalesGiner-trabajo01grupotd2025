@@ -5,11 +5,12 @@ date: "`r Sys.Date()`"
 format:
   typst:
     toc: true
+    toc-title: "Índice"
 ---
 
 \newpage
 
-## EJERCICIO 1 (Mar Canales)
+## Problema 1 (Mar Canales)
 
 Una empresa andaluza de artículos deportivos está considerando cuatro estrategias (D1, D2, D3, D4) bajo tres posibles escenarios de mercado (E1, E2, E3) para impulsar su presencia en el mercado del pádel. La matriz de valores numéricos (en millones de euros) bajo cada escenario viene dada en la tabla siguiente:
 
@@ -33,6 +34,7 @@ tabla1= crea.tablaX(c(16,8,4,
 
 ```
 
+### Resolución en el caso de beneficios
 **Apartado 1:** Resuelvo el problema suponiendo que los datos son beneficios
 
 ```{r}
@@ -74,7 +76,7 @@ tt(criterio.Todos(tabla1, 0.5, favorable = TRUE), rownames = TRUE)
 
 ```
 
-## Conclusión
+### Conclusión
 
 Hemos realizado todos los métodos de incertidumbre por separado y los visualizamos todos juntos con el criterio todos. En el caso de que la tabla sea de beneficios, llegamos a la conclusión de que la **alternativa d1** es la alternativa óptima ya que todos los métodos la eligen como la óptima. Como no tenemos un contexto del problema, no podemos decir más.
 
@@ -82,6 +84,7 @@ Además hemos estudiado la decisión según el método Hurwicz en función del v
 
 **Apartado 2:** Análogamente resolvamos el problema suponiendo ahora que los datos son costes
 
+### Resolución el caso de costes
 ```{r}
 # Pesimista
 p2_pes = criterio.Wald(tabla1,F)
@@ -124,13 +127,13 @@ tt(criterio.Todos(tabla1, 0.5, favorable = FALSE), rownames = TRUE)
 
 ```
 
-## Conclusión
+### Conclusión
 
 Hemos realizado todos los métodos de incertidumbre por separado y los visualizamos todos juntos con el criterio todos. En el caso de que la tabla sea de costes, llegamos a la conclusión de que la **alternativa d4** es la alternativa óptima ya que 5 de los 6 métodos la eligen como la óptima.
 
 Además hemos estudiado la decisión según el método Hurwicz en función del valor de alfa, obteniendo que si alfa está en el intervalo (0,0.8) la alternativa óptima es d4, sin embargo, si alfa\>0.8 seleccionaría la alternativa d3.
 
-## EJERCICIO 2 (Mar Canales)
+## Problema 2 (Mar Canales)
 
 Una agencia de viajes sevillana está decidiendo qué tipo de paquete turístico principal ofrecer el próximo año. El éxito de cada opción dependerá del nivel de demanda turística que se presente. Alternativas:\
 - D1 – Ofrecer viajes internacionales\
@@ -148,6 +151,7 @@ Los siguientes valores representan los beneficios esperados (en miles de euros) 
 | **D2** |  220   |  190   |  130   |
 | **D3** |  150   |  160   |  140   |
 
+### Resolución
 Procedemos a la resolución del problema:
 
 ```{r}
@@ -174,7 +178,7 @@ dibuja.criterio.Hurwicz_Intervalos(tabla2, favorable =T)
 tt(criterio.Todos(tabla2, 0.5, favorable = TRUE), rownames = TRUE)
 ```
 
-## Conclusión
+### Conclusión
 
 En esta ocasión utilizamos directamente el criterio de todos, este nos muestra que para 5 de los 6 métodos, d1 es la mejor opción y, para 3 de ellos hay un empate con d2, y para el método de Wald el mejor sería d3. Por tanto, **la opción idónea será d1 que es ofrecer viajes internacionales.**\
 La única excepción en la que recomendaría que la decición fuera d3, sería si supiéramos que la agencia de viajes es pesimista.
@@ -205,10 +209,7 @@ Aplicar los criterios de decisión bajo incertidumbre a el problema cuya tabla 
 
 resolverlo con cada uno de los métodos o funciones individuales de incertidumbre por separado (tanto en situación favorable como desfavorable)
 
-### Resolución
-
-#### Situación favorable
-
+### Resolución en la caso de beneficios
 Definimos la tabla de decision
 
 ```{r}
@@ -277,7 +278,7 @@ criterio.PuntoIdeal(tb01a, favorable = TRUE)
 
 La alternativa 2 es la mejor según el criterio del punto ideal
 
-#### Situación desfavorable
+### Resolución en el caso de costes
 
 Definiendo la tabla de decision
 
@@ -348,7 +349,7 @@ criterio.PuntoIdeal(tb01b, favorable = FALSE)
 
 La alternativa 2 es la mejor según el criterio del punto ideal
 
-### Conclusión
+### Conclusiones
 
 En situación favorable y desfavorable mismos resultados.
 
@@ -362,8 +363,9 @@ Entonces:
 
 -   Si es muy optimista D1
 
-## Problema 2 – Restaurante italiano y elección del menú (Camilla Bocciolone)
+## Problema 2 (Camilla Bocciolone)
 
+Restaurante italiano y elección del menú:
 Un restaurante italiano debe decidir qué nuevo plato principal incluir en el menú de la próxima temporada. Las alternativas son:
 
 -   **E1:** Lasagna vegetariana con verduras de temporada
@@ -500,7 +502,8 @@ Si el restaurante fuera pesimista, la alternativa Risotto de marisco sería reco
 
 \newpage
 
-## 1. Primer problema: Resolución de tabla de decisión con los métodos vistos en clase. (Manuel Triviño)
+## Problema 1 (Manuel Triviño)
+Resolución de tabla de decisión con los métodos vistos en clase. 
 
 Usaremos una tabla de decisión con los mismos datos que la tarea realizado en Excel para la clase de teoría, así podremos comparar si los resultados son iguales.
 
@@ -527,7 +530,7 @@ alfaH <- 0.4 # Establecemos un nivel de alfa para el criterio de Hurwicz
 | **D4** |   90   |   85   |   95   |   80   |   75   |  100   |
 | **D5** |   70   |   60   |   65   |   55   |   60   |   65   |
 
-### 1.1 Resolución en el caso favorable (beneficios)
+### Resolución en el caso de beneficios
 
 ```{r}
 #| label: resolución en el caso favorable
@@ -555,9 +558,10 @@ dibuja.criterio.Hurwicz(pb1_datos, favorable = TRUE)
 #dibuja.criterio.Hurwicz_Intervalos(pb1_datos, favorable = TRUE) No hay puntos de corte porque d4 es la mejor para cualquier valor de alpha
 ```
 
-**Conclusión**: En todos los criterios la mejor alternativa en el caso favorable es la **d4**. Esto resultados están acorde a lo calculado con Excel.
+### Conclusión
+En todos los criterios la mejor alternativa en el caso favorable es la **d4**. Esto resultados están acorde a lo calculado con Excel.
 
-### 1.2 Resolución en el caso desfavorable (costos)
+### Resolución en el caso de costes
 
 Calculamos la mejor decisión con cada criterio para el caso desfavorable
 
@@ -587,11 +591,14 @@ Para todo alfa en el caso desfavorable la mejor decisión es la d3.
 
 En el caso desfavorable elección mayoritaria será d3 en todos los criterios, sólo d5 se elige 1 vez en el criterio de Wald.
 
-**Conclusión**: La mejor alternativa en el caso desfavorable es la **d3**. Estos resultados están acorde a lo calculado con Excel.
+### Conclusión 
+La mejor alternativa en el caso desfavorable es la **d3**. Estos resultados están acorde a lo calculado con Excel.
 
-## 2. Segundo problema: enunciar un problema real y resolverlo mediante métodos de incertidumbre. (Manuel Triviño)
 
-### 2.1 Evaluación de pólizas de mantenimiento para vivienda.
+## Segundo problema (Manuel Triviño)
+Enunciar un problema real y resolverlo mediante métodos de incertidumbre. 
+
+Evaluación de pólizas de mantenimiento para vivienda.
 
 Queremos contratar una póliza de mantenimiento anual para nuestra vivienda antes de un año con obras previstas. Hay cinco opciones comerciales disponibles: Plan Ahorro, Plan Básico, Plan Plus, Plan Premium y Plan Platinum. Cada plan establece una cuota anual fija y cubre distintos porcentajes del coste de reparaciones. Durante el año pueden ocurrir cuatro estados de la naturaleza mutuamente excluyentes:
 
@@ -617,7 +624,7 @@ Las características de los planes son:
 
 En principio usaremos índice de optimismo **α = 0.6.**
 
-### 2.2 Resolución del problema 2
+### Resolución
 
 Estamos ante un problema de costes. Objetivo: minimizar el coste total del primer año ante incertidumbre sobre el estado futuro. Usaremos la función que calcula la elección para todos los métodos y veremos cuál decisión es la más acertada.
 
@@ -686,6 +693,7 @@ dibuja.criterio.Hurwicz_Intervalos(pb2_datos, favorable=FALSE)
 
 ```
 
-**Conclusión**: **contratamos el plan Platinum** que ha sido el elegido en todos los métodos menos el criterio Optimista, en el que se ha optado por el plan Ahorro. Esto concuerda con el estudio que hemos realizado del criterio de Hurwicz, donde vemos que a partir de α = 0.91 elegiremos la alternativa Ahorro.
+### Conclusión 
+**Contratamos el plan Platinum** que ha sido el elegido en todos los métodos menos el criterio Optimista, en el que se ha optado por el plan Ahorro. Esto concuerda con el estudio que hemos realizado del criterio de Hurwicz, donde vemos que a partir de α = 0.91 elegiremos la alternativa Ahorro.
 
 \newpage
