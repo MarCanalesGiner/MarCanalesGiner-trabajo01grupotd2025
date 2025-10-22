@@ -419,7 +419,7 @@ Determinar cuál es la mejor decisión para el restaurante aplicando la función
 
     -   **S2:** Preferencias equilibradas entre distintas opciones
 
--   **S3:** Mayor inclinación hacia la tradición italiana clásica
+    -   **S3:** Mayor inclinación hacia la tradición italiana clásica
 
     Valoraciones (beneficios netos en miles de €):
 
