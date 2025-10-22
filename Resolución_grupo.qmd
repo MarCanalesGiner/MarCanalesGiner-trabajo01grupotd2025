@@ -3,6 +3,8 @@ title: "PROBLEMAS RESUELTOS TD"
 author: "Mar Canales, Camilla Bocciolone, Manuel Triviño y Carmen Puerto"
 date: "`r Sys.Date()`"
 format:
+  typst:
+    fig-format: png
   html: default
 ---
 
