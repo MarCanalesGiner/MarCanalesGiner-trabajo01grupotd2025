@@ -130,7 +130,6 @@ Hemos realizado todos los métodos de incertidumbre por separado y los visualiza
 
 Además hemos estudiado la decisión según el método Hurwicz en función del valor de alfa, obteniendo que si alfa está en el intervalo (0,0.8) la alternativa óptima es d4, sin embargo, si alfa\>0.8 seleccionaría la alternativa d3.
 
-
 ## EJERCICIO 2 (Mar Canales)
 
 Una agencia de viajes sevillana está decidiendo qué tipo de paquete turístico principal ofrecer el próximo año. El éxito de cada opción dependerá del nivel de demanda turística que se presente. Alternativas:\
@@ -381,19 +380,26 @@ El éxito del plato depende de la preferencia de los clientes, es decir, de los�
 
 -   **S3:** Mayor inclinación hacia la tradición italiana clásica
 
-El restaurante estima los beneficios esperados (en miles de €) de la siguiente forma
+El restaurante estima los beneficios netos (en miles de euros) considerando los **ingresos obtenidos** por la venta del plato y los **costes de preparación** asociados.\
+Así, por ejemplo:
 
-|     | S1  | S2  | S3  |
-|-----|-----|-----|-----|
-| E1  | 80  | 50  | 20  |
-| E2  | 70  | 60  | 40  |
-| E3  | 30  | 55  | 90  |
+-   Bajo **S1**, la lasaña vegetariana (**E1**) genera ingresos de 120 000 € y tiene un coste de 40 000 €, obteniendo un beneficio de **80 000 €**.\
+    En cambio, el risotto ai frutti de mare (**E2**) gana 110 000 € y gasta 40 000 €, resultando en **70 000 €**,\
+    mientras que el ossobuco (**E3**) solo gana 70 000 € y gasta 40 000 €, quedando con **30 000 €**.
+
+-   Bajo **S2**, la lasaña obtiene **90 000 € de ingresos** y **40 000 € de costes**, por lo que gana **50 000 €**.\
+    El risotto gana **100 000 €** y pierde **40 000 €**, quedando con **60 000 €**,\
+    y el ossobuco gana **95 000 €** y pierde **40 000 €**, obteniendo **55 000 €**.
+
+-   Finalmente, bajo **S3**, la lasaña gana **60 000 €** y pierde **40 000 €**, quedando con **20 000 €**,\
+    el risotto gana **80 000 €** y pierde **40 000 €**, quedando con **40 000 €**,\
+    y el ossobuco gana **130 000 €** y pierde **40 000 €**, obteniendo **90 000 €**.
 
 Determinar cuál es la mejor decisión para el restaurante aplicando la función R que devuelve la resolución de todos los métodos en una única tabla
 
 ### Resolución
 
-**Planteamiento**	
+**Planteamiento**
 
 -   Un decisor.
 
@@ -413,7 +419,27 @@ Determinar cuál es la mejor decisión para el restaurante aplicando la función
 
     -   **S2:** Preferencias equilibradas entre distintas opciones
 
-    -   **S3:** Mayor inclinación hacia la tradición italiana clásica
+-   **S3:** Mayor inclinación hacia la tradición italiana clásica
+
+    Valoraciones (beneficios netos en miles de €):
+
+-   **Estado S1:**
+
+    -   x₁,₁ = 120 − 40 = 80\
+    -   x₂,₁ = 110 − 40 = 70\
+    -   x₃,₁ = 70 − 40 = 30
+
+-   **Estado S2:**
+
+    -   x₁,₂ = 90 − 40 = 50\
+    -   x₂,₂ = 100 − 40 = 60\
+    -   x₃,₂ = 95 − 40 = 55
+
+-   **Estado S3:**
+
+    -   x₁,₃ = 60 − 40 = 20\
+    -   x₂,₃ = 80 − 40 = 40\
+    -   x₃,₃ = 130 − 40 = 90
 
 -   Tabla de valoraciones:
 
@@ -501,7 +527,6 @@ alfaH <- 0.4 # Establecemos un nivel de alfa para el criterio de Hurwicz
 | **D4** |   90   |   85   |   95   |   80   |   75   |  100   |
 | **D5** |   70   |   60   |   65   |   55   |   60   |   65   |
 
-
 ### 1.1 Resolución en el caso favorable (beneficios)
 
 ```{r}
@@ -529,7 +554,6 @@ idealfav
 dibuja.criterio.Hurwicz(pb1_datos, favorable = TRUE)
 #dibuja.criterio.Hurwicz_Intervalos(pb1_datos, favorable = TRUE) No hay puntos de corte porque d4 es la mejor para cualquier valor de alpha
 ```
-
 
 **Conclusión**: En todos los criterios la mejor alternativa en el caso favorable es la **d4**. Esto resultados están acorde a lo calculado con Excel.
 
@@ -645,14 +669,13 @@ pb2_datos <- crea.tablaX(c(
 alfaH2 <- 0.6 # Establecemos un nivel de alfa para el criterio de Hurwicz
 ```
 
-|            | **S1** | **S2** | **S3** | **S4** |
-|:----------:|:------:|:------:|:------:|:------:|
-| **Ahorro** |  420   | 2220   | 3420   | 9420   |
-| **Básico** |  600   | 1500   | 1800   | 9900   |
-| **Plus**   |  780   | 1320   | 1380   | 7740   |
-| **Premium**| 1020   | 1200   | 1230   | 5220   |
-| **Platinum**| 1500  | 1200   | 1200   | 1200   |
-
+|              | **S1** | **S2** | **S3** | **S4** |
+|:------------:|:------:|:------:|:------:|:------:|
+|  **Ahorro**  |  420   |  2220  |  3420  |  9420  |
+|  **Básico**  |  600   |  1500  |  1800  |  9900  |
+|   **Plus**   |  780   |  1320  |  1380  |  7740  |
+| **Premium**  |  1020  |  1200  |  1230  |  5220  |
+| **Platinum** |  1500  |  1200  |  1200  |  1200  |
 
 ```{r}
 
@@ -666,4 +689,3 @@ dibuja.criterio.Hurwicz_Intervalos(pb2_datos, favorable=FALSE)
 **Conclusión**: **contratamos el plan Platinum** que ha sido el elegido en todos los métodos menos el criterio Optimista, en el que se ha optado por el plan Ahorro. Esto concuerda con el estudio que hemos realizado del criterio de Hurwicz, donde vemos que a partir de α = 0.91 elegiremos la alternativa Ahorro.
 
 \newpage
-
