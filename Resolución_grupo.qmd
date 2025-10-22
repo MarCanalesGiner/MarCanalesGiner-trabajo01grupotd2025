@@ -468,12 +468,6 @@ En general, considerando la mayoría de los criterios y un valor habitual de $\a
 
 Si el restaurante fuera pesimista, la alternativa Risotto de marisco sería recomandable
 
-```{r}
-# Librerías y carga de funciones
-library(ggplot2)
-library(knitr)
-library(kableExtra)
-```
 
 ## 1. Primer problema: Resolución de tabla de decisión con los métodos vistos en clase. (Manuel Triviño)
 
@@ -494,19 +488,14 @@ pb1_datos <- crea.tablaX(c( 80, 60,	90,	70,	85,	75,
 alfaH <- 0.4 # Establecemos un nivel de alfa para el criterio de Hurwicz
 ```
 
-```{r}
-#| label: tabla de decisión
-#| results: 'asis'
+|        | **E1** | **E2** | **E3** | **E4** | **E5** | **E6** |
+|:------:|:------:|:------:|:------:|:------:|:------:|:------:|
+| **D1** |   80   |   60   |   90   |   70   |   85   |   75   |
+| **D2** |   95   |   55   |   65   |   60   |   70   |   80   |
+| **D3** |   50   |   45   |   55   |   60   |   65   |   70   |
+| **D4** |   90   |   85   |   95   |   80   |   75   |  100   |
+| **D5** |   70   |   60   |   65   |   55   |   60   |   65   |
 
-cat(
-  knitr::kable(
-    pb1_datos,
-    format = "markdown",
-    caption = "Tabla de decisión"
-  ),
-  sep = "\n"
-)
-```
 
 ### 1.1 Resolución en el caso favorable (beneficios)
 
@@ -536,34 +525,6 @@ dibuja.criterio.Hurwicz(pb1_datos, favorable = TRUE)
 #dibuja.criterio.Hurwicz_Intervalos(pb1_datos, favorable = TRUE) No hay puntos de corte porque d4 es la mejor para cualquier valor de alpha
 ```
 
-A continuación se ofrece una tabla resumen de la elección para cada uno de los criterios, que nos ayudará para la decisión final.
-
-```{r}
-#| label: tabla de resultados en el caso favorable
-#| results: 'asis'
-
-resumenfav <- data.frame(
-Criterio = c("Wald", "Optimista", "Hurwicz", "Savage","Laplace","Punto Ideal"),
-AlternativaOptima = c(
-  names(waldfav$AlternativaOptima),
-  names(optfav$AlternativaOptima),
-  names(hurfav$AlternativaOptima),
-  names(savagefav$AlternativaOptima),
-  names(laplacefav$AlternativaOptima),
-  names(idealfav$AlternativaOptima)
-)
-)
-
-
-cat(
-  knitr::kable(
-    resumenfav,         # tu data.frame
-    format = "markdown", # produce una tabla pipe compatible con Typst/PDF
-    caption = paste("Decisión óptima según cada criterio (α =", alfaH, ")")
-  ),
-  sep = "\n"
-)
-```
 
 **Conclusión**: En todos los criterios la mejor alternativa en el caso favorable es la **d4**. Esto resultados están acorde a lo calculado con Excel.
 
@@ -594,34 +555,6 @@ dibuja.criterio.Hurwicz(pb1_datos, favorable = FALSE)
 ```
 
 Para todo alfa en el caso desfavorable la mejor decisión es la d3.
-
-Se muestra ahora un resumen de los resultados para el caso desfavorable.
-
-```{r}
-#| label: tabla de resultados en el caso desfavorable
-#| results: 'asis'
-
-resumendes <- data.frame(
-Criterio = c("Wald", "Optimista", "Hurwicz", "Savage","Laplace","Punto Ideal"),
-AlternativaOptima = c(
-  paste(names(walddes$AlternativaOptima), collapse = ", "),
-  names(optdes$AlternativaOptima),
-  names(hurdes$AlternativaOptima),
-  names(savagedes$AlternativaOptima),
-  names(laplacedes$AlternativaOptima),
-  names(idealdes$AlternativaOptima)
-)
-)
-
-cat(
-  knitr::kable(
-    resumendes,
-    format = "markdown",
-    caption = paste("Decisión óptima según cada criterio (α =", alfaH, ")")
-  ),
-  sep = "\n"
-)
-```
 
 En el caso desfavorable elección mayoritaria será d3 en todos los criterios, sólo d5 se elige 1 vez en el criterio de Wald.
 
@@ -707,19 +640,14 @@ pb2_datos <- crea.tablaX(c(
 alfaH2 <- 0.6 # Establecemos un nivel de alfa para el criterio de Hurwicz
 ```
 
-```{r}
-#| label: tabla de decisión pb2
-#| results: 'asis'
+|            | **S1** | **S2** | **S3** | **S4** |
+|:----------:|:------:|:------:|:------:|:------:|
+| **Ahorro** |  420   | 2220   | 3420   | 9420   |
+| **Básico** |  600   | 1500   | 1800   | 9900   |
+| **Plus**   |  780   | 1320   | 1380   | 7740   |
+| **Premium**| 1020   | 1200   | 1230   | 5220   |
+| **Platinum**| 1500  | 1200   | 1200   | 1200   |
 
-cat(
-  knitr::kable(
-    pb2_datos,
-    format = "markdown",
-    caption = "Tabla de decisión"
-  ),
-  sep = "\n"
-) 
-```
 
 ```{r}
 
