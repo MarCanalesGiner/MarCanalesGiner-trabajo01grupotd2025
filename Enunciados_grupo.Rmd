@@ -1,6 +1,6 @@
 ---
 title: "Enunciados trabajo grupo 01"
-author: "Mar Canales Giner"
+author: "Mar Canales, Camilla Bocciolone, Manuel Triviño y Carmen Puerto"
 output:
   pdf_document: 
     latex_engine: xelatex
@@ -40,6 +40,9 @@ Los siguientes valores representan los beneficios esperados (en miles de euros) 
 | **D2** |  220   |  190   |  130   |
 | **D3** |  150   |  160   |  140   |
 
+\newpage
+
+
 ## Problema 1 (Camilla Bocciolone)
 
 Aplicar los criterios de decisión bajo incertidumbre a el problema cuya tabla de decisión es la siguiente:
@@ -62,6 +65,7 @@ Aplicar los criterios de decisión bajo incertidumbre a el problema cuya tabla 
 
 resuelverlo con cada uno de los métodos o funciones individuales de incertidumbre por separado (tanto en situación favorable como desfavorable)
 
+
 ## Problema 2 – Restaurante italiano y elección del menú (Camilla Bocciolone)
 
 Un restaurante italiano debe decidir qué nuevo plato principal incluir en el menú de la próxima temporada. Las alternativas son:
@@ -80,25 +84,25 @@ El éxito del plato depende de la preferencia de los clientes, es decir, de los 
 
 -   **S3:** Mayor inclinación hacia la tradición italiana clásica
 
-El restaurante estima los beneficios esperados (en miles de €) de la siguiente forma
+El restaurante estima los beneficios netos (en miles de euros) considerando los **ingresos obtenidos** por la venta del plato y los **costes de preparación** asociados.  
+Así, por ejemplo:
 
-|     | S1  | S2  | S3  |
-|-----|-----|-----|-----|
-| E1  | 80  | 50  | 20  |
-| E2  | 70  | 60  | 40  |
-| E3  | 30  | 55  | 90  |
+- Bajo **S1**, la lasaña vegetariana (**E1**) genera ingresos de 120 000 € y tiene un coste de 40 000 €, obteniendo un beneficio de **80 000 €**.  
+  En cambio, el risotto ai frutti de mare (**E2**) gana 110 000 € y gasta 40 000 €, resultando en **70 000 €**,  
+  mientras que el ossobuco (**E3**) solo gana 70 000 € y gasta 40 000 €, quedando con **30 000 €**.
 
-Estados de la naturaleza S1 (saludable) S2 (equilibrada) S3 (tradicional)
+- Bajo **S2**, la lasaña obtiene **90 000 € de ingresos** y **40 000 € de costes**, por lo que gana **50 000 €**.  
+  El risotto gana **100 000 €** y pierde **40 000 €**, quedando con **60 000 €**,  
+  y el ossobuco gana **95 000 €** y pierde **40 000 €**, obteniendo **55 000 €**.
+ 
+- Finalmente, bajo **S3**, la lasaña gana **60 000 €** y pierde **40 000 €**, quedando con **20 000 €**,  
+  el risotto gana **80 000 €** y pierde **40 000 €**, quedando con **40 000 €**,  
+  y el ossobuco gana **130 000 €** y pierde **40 000 €**, obteniendo **90 000 €**.
 
 Determinar cuál es la mejor decisión para el restaurante aplicando la función R que devuelve la resolución de todos los métodos en una única tabla
 
-```{r}
-# Librerías y carga de funciones
-source("https://raw.githubusercontent.com/calote/TDecisionCodigo/refs/heads/master/teoriadecision_funciones_incertidumbre.R")
-library(ggplot2)
-library(knitr)
-library(kableExtra)
-```
+\newpage
+
 
 ## 1. Primer problema: Resolución de tabla de decisión con los métodos vistos en clase. (Manuel Triviño)
 
@@ -106,32 +110,14 @@ Usaremos una tabla de decisión con los mismos datos que la tarea realizado en E
 
 Al final de cada apartado pondremos una tabla resumen con todas las decisiones obtenidas.
 
-```{r}
-#| label: introducción de datos
-#| echo: false
+|        | **E1** | **E2** | **E3** | **E4** | **E5** | **E6** |
+|:------:|:------:|:------:|:------:|:------:|:------:|:------:|
+| **D1** |   80   |   60   |   90   |   70   |   85   |   75   |
+| **D2** |   95   |   55   |   65   |   60   |   70   |   80   |
+| **D3** |   50   |   45   |   55   |   60   |   65   |   70   |
+| **D4** |   90   |   85   |   95   |   80   |   75   |  100   |
+| **D5** |   70   |   60   |   65   |   55   |   60   |   65   |
 
-pb1_datos <- crea.tablaX(c( 80, 60,	90,	70,	85,	75,
-                95,	55,	65,	60,	70,	80,
-                50,	45,	55,	60,	65,	70,
-                90,	85, 95,	80,	75,	100,
-                70,	60,	65,	55,	60,	65),
-    numalternativas = 5, numestados = 6
-)
-alfaH <- 0.4 # Establecemos un nivel de alfa para el criterio de Hurwicz
-```
-
-```{r}
-#| results: 'asis'
-
-cat(
-  knitr::kable(
-    pb1_datos,
-    format = "markdown",
-    caption = "Tabla de decisión"
-  ),
-  sep = "\n"
-)
-```
 
 ## 2. Segundo problema: enunciar un problema real y resolverlo mediante métodos de incertidumbre. (Manuel Triviño)
 
@@ -159,9 +145,18 @@ Las características de los planes son:
 
 -    Plan Platinum: cuota anual 1.200 €, cobertura completa 100% de todos los costes.
 
+|            | **S1** | **S2** | **S3** | **S4** |
+|:----------:|:------:|:------:|:------:|:------:|
+| **Ahorro** |  420   | 2220   | 3420   | 9420   |
+| **Básico** |  600   | 1500   | 1800   | 9900   |
+| **Plus**   |  780   | 1320   | 1380   | 7740   |
+| **Premium**| 1020   | 1200   | 1230   | 5220   |
+| **Platinum**| 1500  | 1200   | 1200   | 1200   |
 
 
-## Ejercicio 1
+\newpage
+
+## Ejercicio 1 (Carmen Puerto)
 
 Un departamento universitario debe decidir qué modalidad de examen aplicar en una asignatura. La efectividad de cada decisión dependerá del nivel de preparación del alumnado ese año.
 
@@ -176,7 +171,7 @@ Los valores representan la media esperada de calificaciones sobre 10.
 
 
 
-## EJERCICIO 2
+## EJERCICIO 2 (Carmen Puerto)
 
 Una persona está planificando sus vacaciones de verano. Debe elegir entre tres destinos y sabe que el disfrute del viaje dependerá del clima durante esas fechas.
 
