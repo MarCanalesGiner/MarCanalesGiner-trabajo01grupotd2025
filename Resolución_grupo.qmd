@@ -2,15 +2,12 @@
 title: "PROBLEMAS RESUELTOS TD"
 author: "Mar Canales, Camilla Bocciolone, Manuel Triviño y Carmen Puerto"
 date: "`r Sys.Date()`"
-<<<<<<< HEAD
-format: pdf
-=======
 format:
   typst:
-    fig-format: png
-  html: default
->>>>>>> 2c0a63de146bf872b9dd22aba61d2cf0595757ff
+    toc: true
 ---
+
+\newpage
 
 ## EJERCICIO 1 (Mar Canales)
 
@@ -184,6 +181,7 @@ En esta ocasión utilizamos directamente el criterio de todos, este nos muestra 
 La única excepción en la que recomendaría que la decición fuera d3, sería si supiéramos que la agencia de viajes es pesimista.
 
 Por último, hemos estudiado la decisión según el método Hurwicz en función del valor de alfa, obteniendo que si alfa está en el intervalo (0,0.143) la alternativa óptima es d3, si alfa está en (0.143, 0.467) será d2, y finalmente, si alfa\>0.467 seleccionaría la alternativa d1.
+
 \newpage
 
 ## Problema 1 (Camilla Bocciolone)
