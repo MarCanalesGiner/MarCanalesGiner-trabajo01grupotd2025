@@ -35,6 +35,7 @@ tabla1= crea.tablaX(c(16,8,4,
 ```
 
 ### Resolución en el caso de beneficios
+
 **Apartado 1:** Resuelvo el problema suponiendo que los datos son beneficios
 
 ```{r}
@@ -83,6 +84,7 @@ Hemos realizado todos los métodos de incertidumbre por separado y los visualiza
 Además hemos estudiado la decisión según el método Hurwicz en función del valor de alfa, obteniendo que que para cualquier valor de alfa la decisión óptima con dicho método es la alternativa d1.
 
 ### Resolución el caso de costes
+
 **Apartado 2:** Análogamente resolvamos el problema suponiendo ahora que los datos son costes
 
 ```{r}
@@ -152,6 +154,7 @@ Los siguientes valores representan los beneficios esperados (en miles de euros) 
 | **D3** |  150   |  160   |  140   |
 
 ### Resolución
+
 Procedemos a la resolución del problema:
 
 ```{r}
@@ -210,6 +213,7 @@ Aplicar los criterios de decisión bajo incertidumbre a el problema cuya tabla 
 resolverlo con cada uno de los métodos o funciones individuales de incertidumbre por separado (tanto en situación favorable como desfavorable)
 
 ### Resolución en la caso de beneficios
+
 Definimos la tabla de decision
 
 ```{r}
@@ -365,8 +369,7 @@ Entonces:
 
 ## Problema 2 (Camilla Bocciolone)
 
-Restaurante italiano y elección del menú:
-Un restaurante italiano debe decidir qué nuevo plato principal incluir en el menú de la próxima temporada. Las alternativas son:
+Restaurante italiano y elección del menú: Un restaurante italiano debe decidir qué nuevo plato principal incluir en el menú de la próxima temporada. Las alternativas son:
 
 -   **E1:** Lasagna vegetariana con verduras de temporada
 
@@ -423,25 +426,25 @@ Determinar cuál es la mejor decisión para el restaurante aplicando la función
 
     -   **S3:** Mayor inclinación hacia la tradición italiana clásica
 
-    Valoraciones (beneficios netos en miles de €):
+-   Valoraciones (beneficios netos en miles de €):
 
--   **Estado S1:**
+    -   **Estado S1:**
 
-    -   x₁,₁ = 120 − 40 = 80\
-    -   x₂,₁ = 110 − 40 = 70\
-    -   x₃,₁ = 70 − 40 = 30
+        -   x₁,₁ = 120 − 40 = 80\
+        -   x₂,₁ = 110 − 40 = 70\
+        -   x₃,₁ = 70 − 40 = 30
 
--   **Estado S2:**
+    -   **Estado S2:**
 
-    -   x₁,₂ = 90 − 40 = 50\
-    -   x₂,₂ = 100 − 40 = 60\
-    -   x₃,₂ = 95 − 40 = 55
+        -   x₁,₂ = 90 − 40 = 50\
+        -   x₂,₂ = 100 − 40 = 60\
+        -   x₃,₂ = 95 − 40 = 55
 
--   **Estado S3:**
+    -   **Estado S3:**
 
-    -   x₁,₃ = 60 − 40 = 20\
-    -   x₂,₃ = 80 − 40 = 40\
-    -   x₃,₃ = 130 − 40 = 90
+        -   x₁,₃ = 60 − 40 = 20\
+        -   x₂,₃ = 80 − 40 = 40\
+        -   x₃,₃ = 130 − 40 = 90
 
 -   Tabla de valoraciones:
 
@@ -503,7 +506,8 @@ Si el restaurante fuera pesimista, la alternativa Risotto de marisco sería reco
 \newpage
 
 ## Problema 1 (Manuel Triviño)
-Resolución de tabla de decisión con los métodos vistos en clase. 
+
+Resolución de tabla de decisión con los métodos vistos en clase.
 
 Usaremos una tabla de decisión con los mismos datos que la tarea realizado en Excel para la clase de teoría, así podremos comparar si los resultados son iguales.
 
@@ -559,6 +563,7 @@ dibuja.criterio.Hurwicz(pb1_datos, favorable = TRUE)
 ```
 
 ### Conclusión
+
 En todos los criterios la mejor alternativa en el caso favorable es la **d4**. Esto resultados están acorde a lo calculado con Excel.
 
 ### Resolución en el caso de costes
@@ -591,12 +596,13 @@ Para todo alfa en el caso desfavorable la mejor decisión es la d3.
 
 En el caso desfavorable elección mayoritaria será d3 en todos los criterios, sólo d5 se elige 1 vez en el criterio de Wald.
 
-### Conclusión 
+### Conclusión
+
 La mejor alternativa en el caso desfavorable es la **d3**. Estos resultados están acorde a lo calculado con Excel.
 
-
 ## Segundo problema (Manuel Triviño)
-Enunciar un problema real y resolverlo mediante métodos de incertidumbre. 
+
+Enunciar un problema real y resolverlo mediante métodos de incertidumbre.
 
 Evaluación de pólizas de mantenimiento para vivienda.
 
@@ -693,17 +699,18 @@ dibuja.criterio.Hurwicz_Intervalos(pb2_datos, favorable=FALSE)
 
 ```
 
-### Conclusión 
+### Conclusión
+
 **Contratamos el plan Platinum** que ha sido el elegido en todos los métodos menos el criterio Optimista, en el que se ha optado por el plan Ahorro. Esto concuerda con el estudio que hemos realizado del criterio de Hurwicz, donde vemos que a partir de α = 0.91 elegiremos la alternativa Ahorro.
 
-
 \newpage
+
 ## Problema 1 (Carmen Puerto)
 
 Un departamento universitario debe decidir qué modalidad de examen aplicar en una asignatura. La efectividad de cada decisión dependerá del nivel de preparación del alumnado ese año.
 
 | **Estrategia (D)** | **E1 (Alumnos muy preparados)** | **E2 (Preparación media)** | **E3 (Preparación baja)** |
-|:----------------|:---------------------------:|:-----------------------:|:---------------------:|
+|:----------------|:-------------------:|:----------------:|:---------------:|
 | **D1 – Examen tipo test** | 9 | 7 | 4 |
 | **D2 – Examen de desarrollo** | 8 | 6 | 5 |
 | **D3 – Examen mixto (test + desarrollo)** | 8 | 7 | 6 |
@@ -724,6 +731,7 @@ tabla1 = crea.tablaX(c(9,7,4,
 ```
 
 ### Resolución en el caso de beneficios
+
 **Apartado a)** Suponiendo que los valores son beneficios (mayor nota = mejor)
 
 ```{r}
@@ -758,16 +766,16 @@ p_puntoideal$AlternativaOptima
 #install.packages("tinytable")
 tt(criterio.Todos(tabla1, 0.5, favorable = FALSE), rownames = TRUE)
 
-``` 
+```
 
 ### Conclusión
-La mayoría de los criterios (Wald, Hurwicz, Laplace y Punto Ideal) recomiendan la alternativa D3 (examen mixto), ya que es la opción más equilibrada frente a los diferentes niveles de preparación del alumnado.
-El criterio Optimista selecciona D1 (test), que ofrece la mayor nota posible si los alumnos están muy preparados, mientras que el criterio Pesimista destaca D3 por su estabilidad.
+
+La mayoría de los criterios (Wald, Hurwicz, Laplace y Punto Ideal) recomiendan la alternativa D3 (examen mixto), ya que es la opción más equilibrada frente a los diferentes niveles de preparación del alumnado. El criterio Optimista selecciona D1 (test), que ofrece la mayor nota posible si los alumnos están muy preparados, mientras que el criterio Pesimista destaca D3 por su estabilidad.
 
 En conclusión, D3 – examen mixto es la opción más razonable y robusta ante la incertidumbre.
 
-
 ### Resolución en el caso de costes
+
 **Apartado b)** Suponiendo que los valores son “costes” (esfuerzo del profesor)
 
 ```{r}
@@ -807,21 +815,19 @@ tt(criterio.Todos(tabla1, 0.5, favorable = FALSE), rownames = TRUE)
 ```
 
 ### Conclusión
-Si interpretamos los valores como costes (esfuerzo requerido), la mejor alternativa pasa a ser D1 (examen tipo test), pues implica menos esfuerzo para corregir y administrar.
-Por tanto, la decisión óptima dependerá del objetivo:
 
-- Si se busca maximizar rendimiento del alumnado, elegir D3.
+Si interpretamos los valores como costes (esfuerzo requerido), la mejor alternativa pasa a ser D1 (examen tipo test), pues implica menos esfuerzo para corregir y administrar. Por tanto, la decisión óptima dependerá del objetivo:
 
-- Si se busca minimizar el esfuerzo docente, elegir D1.
+-   Si se busca maximizar rendimiento del alumnado, elegir D3.
 
-
+-   Si se busca minimizar el esfuerzo docente, elegir D1.
 
 ## Problema 2 (Carmen Puerto)
 
 Una persona está planificando sus vacaciones de verano. Debe elegir entre tres destinos y sabe que el disfrute del viaje dependerá del clima durante esas fechas.
 
 | **Alternativa (D)** | **E1 (Clima soleado)** | **E2 (Clima variable)** | E3 **(Clima lluvioso)** |
-|:-----------------|:------------------:|:-------------------:|:-------------------:|
+|:-----------------|:----------------:|:-----------------:|:-----------------:|
 | **D1 – Playa** | 9 | 6 | 2 |
 | **D2 – Ciudad cultural** | 7 | 8 | 5 |
 | **D3 – Turismo rural** | 6 | 7 | 8 |
@@ -836,7 +842,6 @@ tabla2 = crea.tablaX(c(9,6,2,
                        7,8,5,
                        6,7,8),3,3)
 ```
-
 
 ```{r}
 # Pesimista
@@ -873,11 +878,9 @@ tt(criterio.Todos(tabla2, 0.5, favorable = TRUE), rownames = TRUE)
 ```
 
 ### Conclusión
-El análisis muestra que la mayoría de criterios (Wald, Laplace, Hurwicz y Punto Ideal) seleccionan D2 (Ciudad cultural), ya que ofrece satisfacción alta en casi todos los climas.
-El criterio Optimista elegiría D1 (Playa), porque proporciona la máxima puntuación posible (9) si el clima es perfecto.
+
+El análisis muestra que la mayoría de criterios (Wald, Laplace, Hurwicz y Punto Ideal) seleccionan D2 (Ciudad cultural), ya que ofrece satisfacción alta en casi todos los climas. El criterio Optimista elegiría D1 (Playa), porque proporciona la máxima puntuación posible (9) si el clima es perfecto.
 
 Por tanto, si la persona quiere una opción segura y equilibrada, el destino ideal sería una ciudad cultural (D2); si es optimista y confía en el buen tiempo, puede elegir D1 (Playa).
 
 \newpage
-
-
